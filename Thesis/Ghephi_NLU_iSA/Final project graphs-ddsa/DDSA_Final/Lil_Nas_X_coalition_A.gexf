@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2021-04-16">
+    <creator>NetworkX 2.5</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="0" title="sign" type="string" />
+    </attributes>
+    <nodes>
+      <node id="&quot;Tony1&quot;" label="&quot;Tony1&quot;" />
+      <node id="&quot;Kim Leung&quot;" label="&quot;Kim Leung&quot;" />
+      <node id="60292990" label="60292990" />
+      <node id="&quot;Brojam&quot;" label="&quot;Brojam&quot;" />
+      <node id="&quot;Annoyedhumanoid&quot;" label="&quot;Annoyedhumanoid&quot;" />
+      <node id="&quot;Ss112&quot;" label="&quot;Ss112&quot;" />
+      <node id="&quot;Starcheerspeaksnewslostwars&quot;" label="&quot;Starcheerspeaksnewslostwars&quot;" />
+    </nodes>
+    <edges>
+      <edge source="&quot;Tony1&quot;" target="&quot;Kim Leung&quot;" id="0">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Tony1&quot;" target="60292990" id="1">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Kim Leung&quot;" target="60292990" id="2">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="60292990" target="&quot;Brojam&quot;" id="3">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="60292990" target="&quot;Annoyedhumanoid&quot;" id="4">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="60292990" target="&quot;Ss112&quot;" id="5">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Ss112&quot;" target="&quot;Starcheerspeaksnewslostwars&quot;" id="6">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

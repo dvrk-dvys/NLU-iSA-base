@@ -1,0 +1,41 @@
+mode: fp16_multi_pretrain
+model: BERT
+
+#data_path: data/YELP
+data_path: data/iSA
+pretrain_file: yelp_restaurants_preprocess_pretrain.pkl
+train_file: iSA_Train_v2_Implicit_Labeled_preprocess_finetune.pkl
+test_file: iSA_Test_Gold_Implicit_Labeled_preprocess_finetune.pkl
+model_path: results/iSA
+num_workers_per_loader: 2
+
+seed: 42
+batch_size: 32
+dropout: 0.1
+epoch: 6
+report_frequency: 2
+save_frequency: 400
+
+decoder_heads: 6
+decoder_layers: 6
+decoder_hidden: 768
+decoder_ff: 2048
+decoder_dropout: 0.2
+share_emb: True
+
+optimizer: adamw
+lambda_scl: 2.0
+lambda_map: 1.0
+lambda_rr: 1.0
+learning_rate: 0.00005
+learning_rate_bert: 0.00005
+weight_decay: 0.00005
+warm_up: 20000
+grad_norm: 5.0
+
+ckpt: '/Users/jordanharris/SCAPT-ABSA/checkpoints/Yelp_BERT/epoch=2-step=900.ckpt'
+state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP/BERT_0622153834/epoch_3_step_5100.pt'
+dec_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP/BERT_0622153834/epoch_3_step_5100_decoder.pt'
+gen_state_dict: '//Users/jordanharris/SCAPT-ABSA/results/YELP/BERT_0622153834/epoch_3_step_5100_generator.pt'
+
+

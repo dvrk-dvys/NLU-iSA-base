@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2021-04-16">
+    <creator>NetworkX 2.5</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="0" title="sign" type="string" />
+    </attributes>
+    <nodes>
+      <node id="&quot;Sampajanna&quot;" label="&quot;Sampajanna&quot;" />
+      <node id="&quot;2600:8805:2003:B00:6177:D8B8:5D77:570&quot;" label="&quot;2600:8805:2003:B00:6177:D8B8:5D77:570&quot;" />
+      <node id="&quot;El C&quot;" label="&quot;El C&quot;" />
+      <node id="&quot;Alanscottwalker&quot;" label="&quot;Alanscottwalker&quot;" />
+      <node id="&quot;DrKay&quot;" label="&quot;DrKay&quot;" />
+    </nodes>
+    <edges>
+      <edge source="&quot;Sampajanna&quot;" target="&quot;2600:8805:2003:B00:6177:D8B8:5D77:570&quot;" id="0">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Sampajanna&quot;" target="&quot;El C&quot;" id="1">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Sampajanna&quot;" target="&quot;Alanscottwalker&quot;" id="2">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Alanscottwalker&quot;" target="&quot;DrKay&quot;" id="3">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

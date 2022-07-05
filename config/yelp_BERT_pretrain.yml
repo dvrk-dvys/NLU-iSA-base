@@ -1,0 +1,49 @@
+mode: fp16_multi_pretrain
+model: BERT
+
+data_path: data/YELP
+pretrain_file: yelp_restaurants_preprocess_pretrain.pkl
+#model_path: results/YELP
+model_path: results/YELP_Amazon
+num_workers_per_loader: 2
+
+seed: 42
+batch_size: 32
+dropout: 0.1
+epoch: 8
+report_frequency: 2
+save_frequency: 400
+
+decoder_heads: 6
+decoder_layers: 6
+decoder_hidden: 768
+decoder_ff: 2048
+decoder_dropout: 0.2
+share_emb: True
+
+optimizer: adamw
+lambda_scl: 2.0
+lambda_map: 1.0
+lambda_rr: 1.0
+learning_rate: 0.00005
+learning_rate_bert: 0.00005
+weight_decay: 0.00005
+warm_up: 20000
+grad_norm: 5.0
+
+
+ckpt: '/Users/jordanharris/SCAPT-ABSA/checkpoints/YELP_Amazon_BERT/last.ckpt'
+state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0625234453/epoch_6_step_4000.pt'
+dec_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0625234453/epoch_6_step_4000_decoder.pt'
+gen_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0625234453/epoch_6_step_4000_generator.pt'
+
+
+
+
+#ckpt: '/Users/jordanharris/SCAPT-ABSA/checkpoints/Amazon_BERT/last.ckpt'
+#ckpt: '/Users/jordanharris/SCAPT-ABSA/checkpoints/YELP_BERT/last.ckpt'
+#state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP/BERT_0624233628/epoch_3_step_2500.pt'
+#dec_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP/BERT_0624233628/epoch_3_step_2500_decoder.pt'
+#gen_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP/BERT_0624233628/epoch_3_step_2500_generator.pt'
+
+

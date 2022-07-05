@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2021-04-16">
+    <creator>NetworkX 2.5</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <nodes>
+      <node id="&quot;Sampajanna&quot;" label="&quot;Sampajanna&quot;" />
+      <node id="11214029" label="11214029" />
+      <node id="&quot;El C&quot;" label="&quot;El C&quot;" />
+      <node id="&quot;2600:8805:2003:B00:6177:D8B8:5D77:570&quot;" label="&quot;2600:8805:2003:B00:6177:D8B8:5D77:570&quot;" />
+      <node id="&quot;DrKay&quot;" label="&quot;DrKay&quot;" />
+      <node id="&quot;DragonFederal&quot;" label="&quot;DragonFederal&quot;" />
+      <node id="&quot;Bettydaisies&quot;" label="&quot;Bettydaisies&quot;" />
+      <node id="&quot;Suge13&quot;" label="&quot;Suge13&quot;" />
+      <node id="&quot;Surtsicna&quot;" label="&quot;Surtsicna&quot;" />
+      <node id="&quot;Textorus&quot;" label="&quot;Textorus&quot;" />
+      <node id="&quot;RMCD bot&quot;" label="&quot;RMCD bot&quot;" />
+      <node id="&quot;Jontel&quot;" label="&quot;Jontel&quot;" />
+      <node id="&quot;Alanscottwalker&quot;" label="&quot;Alanscottwalker&quot;" />
+      <node id="&quot;Ivanvector&quot;" label="&quot;Ivanvector&quot;" />
+      <node id="&quot;Glenmeister&quot;" label="&quot;Glenmeister&quot;" />
+      <node id="&quot;Jaguar&quot;" label="&quot;Jaguar&quot;" />
+      <node id="&quot;Robidy&quot;" label="&quot;Robidy&quot;" />
+      <node id="&quot;SigKauffman&quot;" label="&quot;SigKauffman&quot;" />
+      <node id="&quot;Rfl0216&quot;" label="&quot;Rfl0216&quot;" />
+      <node id="&quot;Peter Ormond&quot;" label="&quot;Peter Ormond&quot;" />
+      <node id="&quot;Moonraker&quot;" label="&quot;Moonraker&quot;" />
+      <node id="&quot;InEventOf&quot;" label="&quot;InEventOf&quot;" />
+      <node id="&quot;Keivan.f&quot;" label="&quot;Keivan.f&quot;" />
+      <node id="&quot;Baeleigh&quot;" label="&quot;Baeleigh&quot;" />
+      <node id="&quot;Jeremy Hulber&quot;" label="&quot;Jeremy Hulber&quot;" />
+      <node id="&quot;Crystalfile&quot;" label="&quot;Crystalfile&quot;" />
+      <node id="&quot;Aquila89&quot;" label="&quot;Aquila89&quot;" />
+      <node id="&quot;No Swan So Fine&quot;" label="&quot;No Swan So Fine&quot;" />
+      <node id="&quot;Britmax&quot;" label="&quot;Britmax&quot;" />
+      <node id="&quot;Editz.123&quot;" label="&quot;Editz.123&quot;" />
+      <node id="&quot;Gjwang0&quot;" label="&quot;Gjwang0&quot;" />
+      <node id="&quot;Rutherford 23&quot;" label="&quot;Rutherford 23&quot;" />
+      <node id="&quot;Kind Tennis Fan&quot;" label="&quot;Kind Tennis Fan&quot;" />
+      <node id="&quot;Philip Cross&quot;" label="&quot;Philip Cross&quot;" />
+      <node id="&quot;Citation bot&quot;" label="&quot;Citation bot&quot;" />
+      <node id="&quot;Classicfilms&quot;" label="&quot;Classicfilms&quot;" />
+      <node id="&quot;Brainulator9&quot;" label="&quot;Brainulator9&quot;" />
+      <node id="&quot;WhisperToMe&quot;" label="&quot;WhisperToMe&quot;" />
+      <node id="&quot;Robin Patterson&quot;" label="&quot;Robin Patterson&quot;" />
+      <node id="&quot;Gaia Octavia Agrippa&quot;" label="&quot;Gaia Octavia Agrippa&quot;" />
+      <node id="&quot;Iranazad&quot;" label="&quot;Iranazad&quot;" />
+      <node id="&quot;Martinevans123&quot;" label="&quot;Martinevans123&quot;" />
+      <node id="&quot;Zvikorn&quot;" label="&quot;Zvikorn&quot;" />
+    </nodes>
+    <edges>
+      <edge source="&quot;Sampajanna&quot;" target="11214029" id="0" weight="0.5" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;El C&quot;" id="1" weight="8" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;2600:8805:2003:B00:6177:D8B8:5D77:570&quot;" id="2" weight="2" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;Bettydaisies&quot;" id="3" weight="8" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;Surtsicna&quot;" id="4" weight="8" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;Textorus&quot;" id="5" weight="8" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;Jontel&quot;" id="6" weight="8" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;Alanscottwalker&quot;" id="7" weight="8" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;Moonraker&quot;" id="8" weight="8" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;InEventOf&quot;" id="9" weight="8" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;Keivan.f&quot;" id="10" weight="8" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;Crystalfile&quot;" id="11" weight="8" />
+      <edge source="&quot;Sampajanna&quot;" target="&quot;No Swan So Fine&quot;" id="12" weight="8" />
+      <edge source="11214029" target="&quot;DrKay&quot;" id="13" weight="0.5" />
+      <edge source="11214029" target="&quot;DragonFederal&quot;" id="14" weight="0.5" />
+      <edge source="11214029" target="&quot;Bettydaisies&quot;" id="15" weight="0.5" />
+      <edge source="11214029" target="&quot;Suge13&quot;" id="16" weight="0.5" />
+      <edge source="11214029" target="&quot;RMCD bot&quot;" id="17" weight="0.5" />
+      <edge source="11214029" target="&quot;Jontel&quot;" id="18" weight="0.5" />
+      <edge source="11214029" target="&quot;Alanscottwalker&quot;" id="19" weight="0.5" />
+      <edge source="11214029" target="&quot;Glenmeister&quot;" id="20" weight="0.5" />
+      <edge source="11214029" target="&quot;Jaguar&quot;" id="21" weight="0.5" />
+      <edge source="11214029" target="&quot;Robidy&quot;" id="22" weight="0.5" />
+      <edge source="11214029" target="&quot;SigKauffman&quot;" id="23" weight="0.5" />
+      <edge source="11214029" target="&quot;Rfl0216&quot;" id="24" weight="0.5" />
+      <edge source="11214029" target="&quot;Peter Ormond&quot;" id="25" weight="0.5" />
+      <edge source="11214029" target="&quot;Moonraker&quot;" id="26" weight="0.5" />
+      <edge source="11214029" target="&quot;InEventOf&quot;" id="27" weight="0.5" />
+      <edge source="11214029" target="&quot;Keivan.f&quot;" id="28" weight="0.5" />
+      <edge source="11214029" target="&quot;Baeleigh&quot;" id="29" weight="0.5" />
+      <edge source="11214029" target="&quot;Jeremy Hulber&quot;" id="30" weight="0.5" />
+      <edge source="11214029" target="&quot;Crystalfile&quot;" id="31" weight="0.5" />
+      <edge source="11214029" target="&quot;Aquila89&quot;" id="32" weight="0.5" />
+      <edge source="11214029" target="&quot;No Swan So Fine&quot;" id="33" weight="0.5" />
+      <edge source="11214029" target="&quot;Britmax&quot;" id="34" weight="0.5" />
+      <edge source="11214029" target="&quot;Editz.123&quot;" id="35" weight="0.5" />
+      <edge source="11214029" target="&quot;Gjwang0&quot;" id="36" weight="0.5" />
+      <edge source="11214029" target="&quot;Rutherford 23&quot;" id="37" weight="0.5" />
+      <edge source="11214029" target="&quot;Kind Tennis Fan&quot;" id="38" weight="0.5" />
+      <edge source="11214029" target="&quot;Philip Cross&quot;" id="39" weight="0.5" />
+      <edge source="11214029" target="&quot;Citation bot&quot;" id="40" weight="0.5" />
+      <edge source="11214029" target="&quot;Classicfilms&quot;" id="41" weight="0.5" />
+      <edge source="11214029" target="&quot;Brainulator9&quot;" id="42" weight="0.5" />
+      <edge source="11214029" target="&quot;WhisperToMe&quot;" id="43" weight="0.5" />
+      <edge source="11214029" target="&quot;Robin Patterson&quot;" id="44" weight="0.5" />
+      <edge source="11214029" target="&quot;Gaia Octavia Agrippa&quot;" id="45" weight="0.5" />
+      <edge source="11214029" target="&quot;Iranazad&quot;" id="46" weight="0.5" />
+      <edge source="11214029" target="&quot;Martinevans123&quot;" id="47" weight="0.5" />
+      <edge source="11214029" target="&quot;Zvikorn&quot;" id="48" weight="0.5" />
+      <edge source="&quot;El C&quot;" target="&quot;No Swan So Fine&quot;" id="49" weight="8" />
+      <edge source="&quot;El C&quot;" target="&quot;Philip Cross&quot;" id="50" weight="8" />
+      <edge source="&quot;El C&quot;" target="&quot;Kind Tennis Fan&quot;" id="51" weight="8" />
+      <edge source="&quot;2600:8805:2003:B00:6177:D8B8:5D77:570&quot;" target="&quot;No Swan So Fine&quot;" id="52" weight="2" />
+      <edge source="&quot;2600:8805:2003:B00:6177:D8B8:5D77:570&quot;" target="&quot;Philip Cross&quot;" id="53" weight="2" />
+      <edge source="&quot;2600:8805:2003:B00:6177:D8B8:5D77:570&quot;" target="&quot;Kind Tennis Fan&quot;" id="54" weight="2" />
+      <edge source="&quot;DrKay&quot;" target="&quot;Peter Ormond&quot;" id="55" weight="8" />
+      <edge source="&quot;DrKay&quot;" target="&quot;Jeremy Hulber&quot;" id="56" weight="8" />
+      <edge source="&quot;DrKay&quot;" target="&quot;Keivan.f&quot;" id="57" weight="8" />
+      <edge source="&quot;DrKay&quot;" target="&quot;Robin Patterson&quot;" id="58" weight="8" />
+      <edge source="&quot;DrKay&quot;" target="&quot;Alanscottwalker&quot;" id="59" weight="8" />
+      <edge source="&quot;DrKay&quot;" target="&quot;Iranazad&quot;" id="60" weight="8" />
+      <edge source="&quot;Bettydaisies&quot;" target="&quot;Alanscottwalker&quot;" id="61" weight="8" />
+      <edge source="&quot;Bettydaisies&quot;" target="&quot;Crystalfile&quot;" id="62" weight="8" />
+      <edge source="&quot;Bettydaisies&quot;" target="&quot;Keivan.f&quot;" id="63" weight="8" />
+      <edge source="&quot;Bettydaisies&quot;" target="&quot;Kind Tennis Fan&quot;" id="64" weight="8" />
+      <edge source="&quot;Alanscottwalker&quot;" target="&quot;Ivanvector&quot;" id="65" weight="8" />
+      <edge source="&quot;Alanscottwalker&quot;" target="&quot;Crystalfile&quot;" id="66" weight="8" />
+      <edge source="&quot;Alanscottwalker&quot;" target="&quot;No Swan So Fine&quot;" id="67" weight="8" />
+      <edge source="&quot;Alanscottwalker&quot;" target="&quot;Keivan.f&quot;" id="68" weight="8" />
+      <edge source="&quot;Keivan.f&quot;" target="&quot;Editz.123&quot;" id="69" weight="8" />
+      <edge source="&quot;Keivan.f&quot;" target="&quot;No Swan So Fine&quot;" id="70" weight="8" />
+      <edge source="&quot;Crystalfile&quot;" target="&quot;Philip Cross&quot;" id="71" weight="8" />
+      <edge source="&quot;Kind Tennis Fan&quot;" target="&quot;Gaia Octavia Agrippa&quot;" id="72" weight="8" />
+    </edges>
+  </graph>
+</gexf>

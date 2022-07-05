@@ -1,0 +1,28 @@
+mode: aspect_finetune
+model: BERT
+
+device: 0
+data_path: data/restaurants
+model_path: results/restaurants
+train_file: Restaurants_Train_v2_Implicit_Labeled_preprocess_finetune.pkl
+test_file: Restaurants_Test_Gold_Implicit_Labeled_preprocess_finetune.pkl
+num_workers_per_loader: 16
+
+seed: 42
+batch_size: 32
+dropout: 0.1
+epoch: 8
+warm_up: 220
+label_smooth: 0.01
+
+optimizer: adamw
+learning_rate: 0.00005
+weight_decay: 0.015
+grad_norm: 5.0
+
+ckpt: '/Users/jordanharris/SCAPT-ABSA/checkpoints/Restaurants_BERT/last.ckpt'
+state_dict: '/Users/jordanharris/SCAPT-ABSA/models_weights/BERT_restaurants.pt'
+
+#state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0629013639/epoch_4_step_5000.pt'
+#dec_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0629013639/epoch_4_step_5000_decoder.pt'
+#gen_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0629013639/epoch_4_step_5000_decoder.pt'

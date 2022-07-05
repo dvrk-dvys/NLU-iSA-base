@@ -1,0 +1,427 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2021-04-16">
+    <creator>NetworkX 2.5</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="0" title="sign" type="string" />
+    </attributes>
+    <nodes>
+      <node id="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" label="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" />
+      <node id="&quot;The One I Left&quot;" label="&quot;The One I Left&quot;" />
+      <node id="&quot;AlsoWukai&quot;" label="&quot;AlsoWukai&quot;" />
+      <node id="&quot;HAL333&quot;" label="&quot;HAL333&quot;" />
+      <node id="&quot;DividedFrame&quot;" label="&quot;DividedFrame&quot;" />
+      <node id="&quot;AbelAndCain&quot;" label="&quot;AbelAndCain&quot;" />
+      <node id="&quot;Popcornfud&quot;" label="&quot;Popcornfud&quot;" />
+      <node id="&quot;EEng&quot;" label="&quot;EEng&quot;" />
+      <node id="&quot;Cpotisch&quot;" label="&quot;Cpotisch&quot;" />
+      <node id="&quot;Billmckern&quot;" label="&quot;Billmckern&quot;" />
+      <node id="&quot;KidAd&quot;" label="&quot;KidAd&quot;" />
+      <node id="&quot;M. Armando&quot;" label="&quot;M. Armando&quot;" />
+      <node id="145422" label="145422" />
+      <node id="&quot;RedHotPear&quot;" label="&quot;RedHotPear&quot;" />
+      <node id="&quot;GoodDay&quot;" label="&quot;GoodDay&quot;" />
+      <node id="&quot;Lovin'Politics&quot;" label="&quot;Lovin'Politics&quot;" />
+      <node id="&quot;Hulged&quot;" label="&quot;Hulged&quot;" />
+      <node id="&quot;GreenC bot&quot;" label="&quot;GreenC bot&quot;" />
+      <node id="&quot;ProcrastinatingReader&quot;" label="&quot;ProcrastinatingReader&quot;" />
+      <node id="&quot;Politicsfan4&quot;" label="&quot;Politicsfan4&quot;" />
+      <node id="&quot;Kind Tennis Fan&quot;" label="&quot;Kind Tennis Fan&quot;" />
+      <node id="&quot;Davidgoodheart&quot;" label="&quot;Davidgoodheart&quot;" />
+      <node id="&quot;EdgarCabreraFariña&quot;" label="&quot;EdgarCabreraFariña&quot;" />
+      <node id="&quot;Thanoscar21&quot;" label="&quot;Thanoscar21&quot;" />
+      <node id="&quot;QuestFour&quot;" label="&quot;QuestFour&quot;" />
+      <node id="&quot;Wodgester&quot;" label="&quot;Wodgester&quot;" />
+      <node id="&quot;Suffusion of Yellow&quot;" label="&quot;Suffusion of Yellow&quot;" />
+      <node id="&quot;Gen. Quon&quot;" label="&quot;Gen. Quon&quot;" />
+      <node id="&quot;Andrew nyr&quot;" label="&quot;Andrew nyr&quot;" />
+      <node id="&quot;Srodgers1701&quot;" label="&quot;Srodgers1701&quot;" />
+      <node id="&quot;Oeoi&quot;" label="&quot;Oeoi&quot;" />
+      <node id="&quot;Lord Stephenson&quot;" label="&quot;Lord Stephenson&quot;" />
+    </nodes>
+    <edges>
+      <edge source="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" target="&quot;The One I Left&quot;" id="0">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" target="&quot;AlsoWukai&quot;" id="1">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" target="&quot;HAL333&quot;" id="2">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" target="&quot;DividedFrame&quot;" id="3">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" target="&quot;AbelAndCain&quot;" id="4">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" target="&quot;Popcornfud&quot;" id="5">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" target="&quot;EEng&quot;" id="6">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" target="&quot;Cpotisch&quot;" id="7">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" target="&quot;Billmckern&quot;" id="8">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" target="&quot;KidAd&quot;" id="9">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Tomasz-Asiana-Ostrowski-2004&quot;" target="&quot;M. Armando&quot;" id="10">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;The One I Left&quot;" target="145422" id="11">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;The One I Left&quot;" target="&quot;AlsoWukai&quot;" id="12">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;AlsoWukai&quot;" target="145422" id="13">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;AlsoWukai&quot;" target="&quot;Andrew nyr&quot;" id="14">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;HAL333&quot;" target="145422" id="15">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;HAL333&quot;" target="&quot;GoodDay&quot;" id="16">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;HAL333&quot;" target="&quot;GreenC bot&quot;" id="17">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;HAL333&quot;" target="&quot;Kind Tennis Fan&quot;" id="18">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;HAL333&quot;" target="&quot;Suffusion of Yellow&quot;" id="19">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;HAL333&quot;" target="&quot;Srodgers1701&quot;" id="20">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;DividedFrame&quot;" target="145422" id="21">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;DividedFrame&quot;" target="&quot;Davidgoodheart&quot;" id="22">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;AbelAndCain&quot;" target="145422" id="23">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;AbelAndCain&quot;" target="&quot;Politicsfan4&quot;" id="24">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;AbelAndCain&quot;" target="&quot;Thanoscar21&quot;" id="25">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;AbelAndCain&quot;" target="&quot;Cpotisch&quot;" id="26">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;AbelAndCain&quot;" target="&quot;Lord Stephenson&quot;" id="27">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;EEng&quot;" target="145422" id="28">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;EEng&quot;" target="&quot;GoodDay&quot;" id="29">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;EEng&quot;" target="&quot;Davidgoodheart&quot;" id="30">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;EEng&quot;" target="&quot;Srodgers1701&quot;" id="31">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;EEng&quot;" target="&quot;Andrew nyr&quot;" id="32">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Cpotisch&quot;" target="145422" id="33">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Cpotisch&quot;" target="&quot;Thanoscar21&quot;" id="34">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Cpotisch&quot;" target="&quot;Gen. Quon&quot;" id="35">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Cpotisch&quot;" target="&quot;Oeoi&quot;" id="36">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Billmckern&quot;" target="145422" id="37">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Billmckern&quot;" target="&quot;Politicsfan4&quot;" id="38">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;KidAd&quot;" target="145422" id="39">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;KidAd&quot;" target="&quot;ProcrastinatingReader&quot;" id="40">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;M. Armando&quot;" target="145422" id="41">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;M. Armando&quot;" target="&quot;ProcrastinatingReader&quot;" id="42">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;RedHotPear&quot;" id="43">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;GoodDay&quot;" id="44">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Lovin'Politics&quot;" id="45">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Hulged&quot;" id="46">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;GreenC bot&quot;" id="47">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;ProcrastinatingReader&quot;" id="48">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Politicsfan4&quot;" id="49">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Kind Tennis Fan&quot;" id="50">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Davidgoodheart&quot;" id="51">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;EdgarCabreraFariña&quot;" id="52">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Thanoscar21&quot;" id="53">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;QuestFour&quot;" id="54">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Wodgester&quot;" id="55">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Suffusion of Yellow&quot;" id="56">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Gen. Quon&quot;" id="57">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Andrew nyr&quot;" id="58">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Srodgers1701&quot;" id="59">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Oeoi&quot;" id="60">
+        <attvalues>
+          <attvalue for="0" value="-" />
+        </attvalues>
+      </edge>
+      <edge source="145422" target="&quot;Lord Stephenson&quot;" id="61">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;RedHotPear&quot;" target="&quot;Davidgoodheart&quot;" id="62">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;RedHotPear&quot;" target="&quot;EdgarCabreraFariña&quot;" id="63">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;GoodDay&quot;" target="&quot;ProcrastinatingReader&quot;" id="64">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;GoodDay&quot;" target="&quot;Srodgers1701&quot;" id="65">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;GoodDay&quot;" target="&quot;Politicsfan4&quot;" id="66">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Lovin'Politics&quot;" target="&quot;Hulged&quot;" id="67">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Hulged&quot;" target="&quot;Gen. Quon&quot;" id="68">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Hulged&quot;" target="&quot;Politicsfan4&quot;" id="69">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;ProcrastinatingReader&quot;" target="&quot;Politicsfan4&quot;" id="70">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Politicsfan4&quot;" target="&quot;Thanoscar21&quot;" id="71">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Thanoscar21&quot;" target="&quot;Oeoi&quot;" id="72">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;QuestFour&quot;" target="&quot;Wodgester&quot;" id="73">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Wodgester&quot;" target="&quot;Suffusion of Yellow&quot;" id="74">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+      <edge source="&quot;Andrew nyr&quot;" target="&quot;Srodgers1701&quot;" id="75">
+        <attvalues>
+          <attvalue for="0" value="+" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
