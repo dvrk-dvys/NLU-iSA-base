@@ -309,7 +309,6 @@ class pretrain_Lite(LightningModule):
                 has_opposite_labels=False
             )
 
-
         decode_context = self.decoder(bert_tokens_masked[:, :-1], hidden_state,
                                  TransformerDecoderState(bert_tokens_masked))
 
