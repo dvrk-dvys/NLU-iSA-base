@@ -13,7 +13,7 @@ seed: 42
 batch_size: 32
 dropout: 0.1
 epoch: 8
-report_frequency: 100
+report_frequency: 200
 save_frequency: 400
 
 decoder_heads: 6
