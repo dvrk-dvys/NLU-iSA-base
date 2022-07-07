@@ -6,31 +6,17 @@ from train.trainer.pretrain import pretrain_Lite, create_dataloader #,fp16_multi
 
 import pytorch_lightning as pl
 from pytorch_lightning.strategies import DDPStrategy
-from pytorch_lightning.accelerators import CPUAccelerator, GPUAccelerator #MPSAccelerator
-from pytorch_lightning.callbacks import RichProgressBar, ModelCheckpoint, StochasticWeightAveraging
+from pytorch_lightning.accelerators import CPUAccelerator
+from pytorch_lightning.callbacks import RichProgressBar, ModelCheckpoint
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 import torch
 
 Xccelerate = CPUAccelerator
-ddp = DDPStrategy(accelerator=Xccelerate, process_group_backend='gloo')
-# print(Xccelerate.get_device_stats(Xccelerate, 0))
-
-from accelerate import Accelerator as HF_Accelerator
-
-XLdevice = HF_Accelerator.device
-torch.device('mps')
-
-
-
 
 
 def train(config):
-    # set_device(torch.device('mps'))
-
     set_seed(config['seed'])
     if config['mode'] == 'fp16_multi_pretrain':
-        # return fp16_multi_pretrain(config)
-
         #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Callbacks
         save_ckpt_path = '/Users/jordanharris/SCAPT-ABSA/checkpoints/' + config['model_path'].split('/')[-1] + '_' + config['model'] + '/'
         checkpoint_callback = ModelCheckpoint(dirpath=save_ckpt_path,
@@ -53,36 +39,35 @@ def train(config):
                               train_batch_size=config['batch_size'],
                               eval_batch_size=config['batch_size'],
                               config=config).to(device=torch.device('cpu'))
-
             # .load_from_checkpoint(config['ckpt'])
 
-            # .to(device=torch.device('mps'))
-
-        trainer = pl.Trainer(accelerator="cpu",
+        trainer = pl.Trainer(accelerator='cpu',
                             max_epochs=8,
                             min_epochs=6,
                             callbacks=[RichProgressBar(refresh_rate=1,), early_stop_callback, checkpoint_callback],
-                            overfit_batches=0.015,
-                            # overfit_batches=100,
-                            auto_scale_batch_size="binsearch",
+                            # overfit_batches=0.015,
+                            overfit_batches=3,
+                            # auto_scale_batch_size="binsearch",
                             enable_progress_bar=True,
                             # strategy=ddp,
                             log_every_n_steps=5,
                             precision=32,
-                            amp_backend="native")
-        # amp_backend="native",
-        # auto_select_gpus=True)
+                            # amp_backend="native"
+        )
 
         dl = create_dataloader(config)
         ckpt = config['ckpt']
         if ckpt != '':
-            # ckpt = config['ckpt']
-            # checkpoint = torch.load(ckpt, map_location=torch.device('mps'))
+            ckpt = config['ckpt']
+            checkpoint = torch.load(ckpt, map_location=torch.device('cpu'))
             trainer.fit(model=model, train_dataloaders=dl, ckpt_path=ckpt)
-        else:
-            # state_dict = config['state_dict']
-            # model = model.load_state_dict(torch.load(state_dict, map_location=torch.device('mps')))
+        elif config['state_dict'] != '':
+            state_dict = config['state_dict']
+            model = model.load_state_dict(torch.load(state_dict, map_location=torch.device('cpu')))
             trainer.fit(model=model, train_dataloaders=dl)
+        else:
+            trainer.fit(model=model, train_dataloaders=dl)
+
 
         model_path = 'models_weights/'
         model_file = config['model_path'].split('/')[-1] + '_' + config['model'] + '_state_dict.pth'
@@ -125,10 +110,10 @@ def train(config):
                               train_batch_size=config['batch_size'],
                               eval_batch_size=config['batch_size'],
                               loaders=loaders,
-                              config=config).to(device=torch.device('mps'))
+                              config=config).to(device=torch.device('CPU'))
 
 
-        trainer = pl.Trainer(accelerator="mps",
+        trainer = pl.Trainer(accelerator='cpu',
                              max_epochs=8,
                              min_epochs=6,
                              devices='auto',
@@ -140,7 +125,8 @@ def train(config):
                              # strategy=ddp,
                              log_every_n_steps=10,
                              precision=32,
-                             amp_backend="native")
+                             amp_backend="native"
+        )
 
         # dl = create_dataloader(config)  # (os.cpu_count()/2))
         ckpt = config['ckpt']

@@ -24,13 +24,13 @@ class PositionalEncoding(nn.Module):
     def forward(self, emb, step=None, add_emb=None):
         emb = emb * math.sqrt(self.dim)
         if add_emb is not None:
-            emb = emb + add_emb
+            emb = emb.to('cpu') + add_emb.to('cpu')
         if (step):
             pos = self.pe[:, step][:, None, :]
-            emb = emb + pos
+            emb = emb.to('cpu') + pos.to('cpu')
         else:
             pos = self.pe[:, :emb.size(1)]
-            emb = emb + pos
+            emb = emb.to('cpu') + pos.to('cpu')
         emb = self.dropout(emb)
         return emb
 

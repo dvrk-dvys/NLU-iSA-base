@@ -34,7 +34,7 @@ warm_up: 20000
 grad_norm: 5.0
 
 ckpt: ''
-state_dict: ''  #'/Users/jordanharris/SCAPT-ABSA/results/BERT_laptops.pt'
+state_dict: ''
 dec_state_dict: ''
 gen_state_dict: ''
 
