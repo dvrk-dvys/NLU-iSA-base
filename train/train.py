@@ -45,25 +45,24 @@ def train(config):
                             max_epochs=8,
                             min_epochs=6,
                             callbacks=[RichProgressBar(refresh_rate=1,), early_stop_callback, checkpoint_callback],
-                            # overfit_batches=0.015,
-                            overfit_batches=3,
-                            # auto_scale_batch_size="binsearch",
+                            overfit_batches=0.015,
+                            # overfit_batches=3,
+                            auto_scale_batch_size="binsearch",
                             enable_progress_bar=True,
-                            # strategy=ddp,
                             log_every_n_steps=5,
                             precision=32,
-                            # amp_backend="native"
+                            amp_backend="native"
         )
 
         dl = create_dataloader(config)
         ckpt = config['ckpt']
         if ckpt != '':
             ckpt = config['ckpt']
-            checkpoint = torch.load(ckpt, map_location=torch.device('cpu'))
+            # checkpoint = torch.load(ckpt, map_location=torch.device('cpu'))
             trainer.fit(model=model, train_dataloaders=dl, ckpt_path=ckpt)
         elif config['state_dict'] != '':
             state_dict = config['state_dict']
-            model = model.load_state_dict(torch.load(state_dict, map_location=torch.device('cpu')))
+            # model = model.load_state_dict(torch.load(state_dict, map_location=torch.device('cpu')))
             trainer.fit(model=model, train_dataloaders=dl)
         else:
             trainer.fit(model=model, train_dataloaders=dl)

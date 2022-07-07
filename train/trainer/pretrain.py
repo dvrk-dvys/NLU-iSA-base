@@ -66,9 +66,7 @@ class ABSADataset(Dataset):
 
 
 def collate_fn(batch):
-
     bert_tokens, aspect_masks, labels, raw_texts, raw_nested_aspect_terms = zip(*batch)
-
     bert_masks = pad_sequence([torch.ones(tokens.shape, device=device, dtype=dtype) for tokens in bert_tokens], batch_first=True)
     bert_tokens = pad_sequence(bert_tokens, batch_first=True)
     aspect_masks = pad_sequence(aspect_masks, batch_first=True)
@@ -117,13 +115,14 @@ def create_dataloader(config):
     pretrain_dataset = ABSADataset(pretrain_path)
     global_rank = ddp.global_rank
     # sampler = DistributedSampler(pretrain_dataset, num_replicas=ddp.world_size, rank=config['local_rank'])
+    # sampler = DistributedSampler(pretrain_dataset, num_replicas=4, rank=config['local_rank'])
 
     print("Card {} start training".format(global_rank) + ' ' + pretrain_path)
     pretrain_loader = DataLoader(pretrain_dataset,
                                  batch_size=config['batch_size'],
-                                 # shuffle=False,
                                  # sampler=sampler,
-                                 collate_fn=collate_fn)
+                                 collate_fn=collate_fn,
+    )
     pretrain_loader = HF_Accelerator.prepare_data_loader(pretrain_loader)
     return pretrain_loader
 
@@ -211,7 +210,6 @@ class pretrain_Lite(LightningModule):
         if 'cache' in config:
             ddp.barrier()
             # configure map_location properly
-            # map_location = {'cuda:%d' % 0: 'cuda:%d' % config['local_rank']}
             map_location = {'cpu:%d' % 0: 'cpu:%d' % config['local_rank']}
             model_dict = torch.load(config['cache'], map_location=map_location)
             decoder_dict = torch.load(config['decoder_cache'], map_location=map_location)
