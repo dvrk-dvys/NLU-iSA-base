@@ -62,16 +62,15 @@ def train(config):
                             max_epochs=8,
                             min_epochs=6,
                             callbacks=[RichProgressBar(refresh_rate=1,), early_stop_callback, checkpoint_callback],
-                            overfit_batches=0.015,
-                            # overfit_batches=100,
-                            auto_scale_batch_size="binsearch",
+                            # overfit_batches=0.015,
+                            overfit_batches=1,
+                            # auto_scale_batch_size="binsearch",
                             enable_progress_bar=True,
                             # strategy=ddp,
                             log_every_n_steps=5,
                             precision=32,
-                            amp_backend="native")
-        # amp_backend="native",
-        # auto_select_gpus=True)
+                            # amp_backend="native"
+        )
 
         dl = create_dataloader(config)
         ckpt = config['ckpt']
@@ -134,13 +133,14 @@ def train(config):
                              devices='auto',
                              callbacks=[RichProgressBar(refresh_rate=1, ), early_stop_callback, checkpoint_callback],
                              # overfit_batches=0.015,
-                             # overfit_batches=100,
-                             auto_scale_batch_size="binsearch",
+                             overfit_batches=1,
+                             # auto_scale_batch_size="binsearch",
                              enable_progress_bar=True,
                              # strategy=ddp,
                              log_every_n_steps=10,
-                             precision=32,
-                             amp_backend="native")
+                             precision=32
+                             # amp_backend="native"
+        )
 
         # dl = create_dataloader(config)  # (os.cpu_count()/2))
         ckpt = config['ckpt']

@@ -345,3 +345,12 @@ class Generator(nn.Module):
         else:
             output = self.softmax(output)
         return output
+
+    # def forward(self, x, use_gumbel_softmax=False):
+    #     output = self.linear.to('mps')(x.to('mps'))
+    #     output[:, self.pad_idx] = -float('inf')
+    #     if use_gumbel_softmax:
+    #         output = gumbel_softmax(output, log_mode=True, dim=-1)
+    #     else:
+    #         output = self.softmax(output)
+    #     return output

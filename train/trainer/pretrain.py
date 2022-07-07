@@ -138,13 +138,14 @@ def create_dataloader(config):
     print("Card {} start training".format(global_rank) + ' ' + pretrain_path)
     pretrain_loader = DataLoader(pretrain_dataset,
                                  batch_size=config['batch_size'],
+                                 collate_fn=collate_fn,
                                  # shuffle=False,
                                  # sampler=sampler,
-                                 collate_fn=collate_fn,
-                                 pin_memory_device='mps',
-                                 pin_memory=True,
-                                 num_workers=6)
-    pretrain_loader = HF_Accelerator.prepare_data_loader(pretrain_loader)
+                                 # pin_memory_device='mps:0',
+                                 # pin_memory=True,
+                                 # num_workers=6
+    )
+    # pretrain_loader = HF_Accelerator.prepare_data_loader(pretrain_loader)
     return pretrain_loader
 
 
