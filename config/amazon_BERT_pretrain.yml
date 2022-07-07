@@ -4,8 +4,8 @@ model: BERT
 data_path: data/Amazon
 pretrain_file: amazon_laptops_preprocess_pretrain.pkl
 #model_path: results/Amazon
-model_path: results/YELP_Amazon
-
+#model_path: results/YELP_Amazon
+model_path: results/BERT
 num_workers_per_loader: 2
 
 seed: 42
@@ -33,10 +33,10 @@ weight_decay: 0.00005
 warm_up: 20000
 grad_norm: 5.0
 
-ckpt: ''
-state_dict: ''  #'/Users/jordanharris/SCAPT-ABSA/results/BERT_laptops.pt'
-dec_state_dict: ''
-gen_state_dict: ''
+ckpt: '/Users/jordanharris/SCAPT-ABSA/checkpoints/Amazon_BERT/last.ckpt'
+state_dict: '/Users/jordanharris/SCAPT-ABSA/results/BERT/BERT_0705153957/epoch_0_step_249.pt'
+dec_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/BERT/BERT_0705153905/epoch_0_step_224_generator.pt'
+gen_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/BERT/BERT_0705153905/epoch_0_step_224_decoder.pt'
 
 #dec_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0703195220/epoch_4_step_5198_decoder.pt'
 #gen_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0703195220/epoch_4_step_5198_generator.pt'
