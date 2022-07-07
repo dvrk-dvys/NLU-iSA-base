@@ -52,7 +52,7 @@ def train(config):
                               weight_decay=config['weight_decay'],
                               train_batch_size=config['batch_size'],
                               eval_batch_size=config['batch_size'],
-                              config=config).to(device=torch.device('cpu'))
+                              config=config).to(device=torch.device('mps'))
 
             # .load_from_checkpoint(config['ckpt'])
 
@@ -128,7 +128,7 @@ def train(config):
                               config=config).to(device=torch.device('mps'))
 
 
-        trainer = pl.Trainer(accelerator="mps",
+        trainer = pl.Trainer(accelerator='cpu',   #"mps",
                              max_epochs=8,
                              min_epochs=6,
                              devices='auto',

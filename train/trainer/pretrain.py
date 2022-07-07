@@ -57,34 +57,25 @@ class ABSADataset(Dataset):
     def __init__(self, path):
         super(ABSADataset, self).__init__()
         data = pickle.load(open(path, 'rb'))
-        # self.bert_tokens = [torch.LongTensor(bert_token) for bert_token in data['bert_tokens']]
-        # self.aspect_masks = [torch.LongTensor(bert_mask) for bert_mask in data['aspect_masks']]
 
         self.raw_texts = data['raw_texts']
         if 'finetune' not in path:
             self.raw_nested_aspect_terms = data['raw_nested_aspect_terms']
-        # self.labels = torch.LongTensor(data['labels'])
         self.len = len(data['labels'])
+
+        # self.bert_tokens = [torch.LongTensor(bert_token) for bert_token in data['bert_tokens']]
+        # self.aspect_masks = [torch.LongTensor(bert_mask) for bert_mask in data['aspect_masks']]
 
         self.bert_tokens = [torch.FloatTensor(bert_token) for bert_token in data['bert_tokens']]
         self.aspect_masks = [torch.FloatTensor(bert_mask) for bert_mask in data['aspect_masks']]
         self.labels = torch.FloatTensor(data['labels'])
 
-
-
     def __getitem__(self, index):
-        # try :
         return (self.bert_tokens[index],
                 self.aspect_masks[index],
                 self.labels[index],
                 self.raw_texts[index],
                 self.raw_nested_aspect_terms[index])
-        # except:
-        #     return (self.bert_tokens[index],
-        #             self.aspect_masks[index],
-        #             self.labels[index],
-        #             self.raw_texts[index])
-
     def __len__(self):
         return self.len
 
@@ -100,16 +91,16 @@ def collate_fn(batch):
     aspect_masks = pad_sequence(aspect_masks, batch_first=True)
     labels = torch.stack(labels)
 
-    bert_tokens_masked, masked_labels = get_masked_inputs_and_labels(bert_tokens.to(device='cpu'), aspect_masks.to(device='cpu'))
+    bert_tokens_masked, masked_labels = get_masked_inputs_and_labels(bert_tokens, aspect_masks)
     bert_tokens_masked = torch.FloatTensor(bert_tokens_masked)
     masked_labels = torch.FloatTensor(masked_labels)
 
-    return (bert_tokens_masked,
-            masked_labels,
-            bert_tokens,
-            bert_masks,
-            aspect_masks,
-            labels,
+    return (bert_tokens_masked.to('mps'),
+            masked_labels.to('mps'),
+            bert_tokens.to('mps'),
+            bert_masks.to('mps'),
+            aspect_masks.to('mps'),
+            labels.to('mps'),
             raw_texts,
             raw_nested_aspect_terms)
 
@@ -149,7 +140,10 @@ def create_dataloader(config):
                                  batch_size=config['batch_size'],
                                  # shuffle=False,
                                  # sampler=sampler,
-                                 collate_fn=collate_fn)
+                                 collate_fn=collate_fn,
+                                 pin_memory_device='mps',
+                                 pin_memory=True,
+                                 num_workers=6)
     pretrain_loader = HF_Accelerator.prepare_data_loader(pretrain_loader)
     return pretrain_loader
 
@@ -255,17 +249,19 @@ class pretrain_Lite(LightningModule):
 
     def training_step(self, batch, batch_idx, optimizer_idx):
 
-        # self.model = self.model.to('mps')
-        # self.decoder = self.decoder.to('mps')
-        # self.generator = self.generator.to('mps')
-        # self.similar_criterion = self.similar_criterion.to('mps')
-        # self.reconstruction_criterion = self.reconstruction_criterion.to("mps")
-
         # _______________________HuggingFace Accelerator________________________
         self.model = HF_Accelerator.prepare_model(self.model)
         self.decoder = HF_Accelerator.prepare_model(self.decoder)
         self.generator = HF_Accelerator.prepare_model(self.generator)
         # _______________________HuggingFace Accelerators________________________
+
+        self.model = self.model.to('mps')
+        self.decoder = self.decoder.to('mps')
+        self.generator = self.generator.to('mps')
+        self.similar_criterion = self.similar_criterion.to('mps')
+        self.reconstruction_criterion = self.reconstruction_criterion.to("mps")
+
+
 
         # for idx, _x in enumerate(batch):
         #     batch[idx] = (_x[0].to(device=torch.device('mps')), _x[1].to(device=torch.device('mps')),
@@ -309,7 +305,7 @@ class pretrain_Lite(LightningModule):
                 has_opposite_labels=False
             )
 
-        decode_context = self.decoder(bert_tokens_masked[:, :-1], hidden_state,
+        decode_context = self.decoder.to('cpu')(bert_tokens_masked[:, :-1], hidden_state,
                                  TransformerDecoderState(bert_tokens_masked))
 
         reconstruction_text = self.generator(decode_context.view(-1, decode_context.size(2)))
