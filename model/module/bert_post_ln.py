@@ -85,9 +85,9 @@ class BertSelfAttention(nn.Module):
         past_key_value=None,
         output_attentions=False,
     ):
-        self.query.cpu()
-        self.key.cpu()
-        self.value.cpu()
+        # self.query.cpu()
+        # self.key.cpu()
+        # self.value.cpu()
         mixed_query_layer = self.query(hidden_states)
 
         # If this is instantiated as a cross-attention module, the keys
@@ -494,13 +494,14 @@ class BertPostLayerNormalizationModel(BertPreTrainedModel):
         # input head_mask has shape [num_heads] or [num_hidden_layers x num_heads]
         # and head_mask is converted to shape [num_hidden_layers x batch x num_heads x seq_length x seq_length]
         head_mask = self.get_head_mask(head_mask, self.config.num_hidden_layers)
-        self.embeddings.cpu()
-        embedding_output = self.embeddings(
-            input_ids=input_ids, position_ids=position_ids, token_type_ids=token_type_ids, inputs_embeds=inputs_embeds
+        # self.embeddings.cpu()
+        embedding_output = self.embeddings.to('mps')(
+            input_ids=input_ids.to('mps'), position_ids=position_ids, token_type_ids=token_type_ids.to('mps'),
+            inputs_embeds=inputs_embeds
         )
-        encoder_outputs = self.encoder(
+        encoder_outputs = self.encoder.to('mps')(
             embedding_output,
-            attention_mask=extended_attention_mask,
+            attention_mask=extended_attention_mask.to('mps'),
             head_mask=head_mask,
             encoder_hidden_states=encoder_hidden_states,
             encoder_attention_mask=encoder_extended_attention_mask,

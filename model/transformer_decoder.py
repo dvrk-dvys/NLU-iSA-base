@@ -56,36 +56,67 @@ class TransformerDecoderLayer(nn.Module):
             * output `[batch_size x 1 x model_dim]`
             * attn `[batch_size x 1 x src_len]`
             * all_input `[batch_size x current_step x model_dim]`
-        """
-        dec_mask = torch.gt(tgt_pad_mask +
-                            self.mask[:, :tgt_pad_mask.size(1),
-                                      :tgt_pad_mask.size(1)], 0)
-        input_norm = self.layer_norm_1(inputs)
+        # """
+        # dec_mask = torch.gt(tgt_pad_mask.to('cpu') + self.mask.to('cpu')[:, :tgt_pad_mask.size(1),:tgt_pad_mask.size(1)], 0)
+        # input_norm = self.layer_norm_1.to('cpu')(inputs)
+        # all_input = input_norm
+        # if previous_input is not None:
+        #     all_input = torch.cat((previous_input, input_norm), dim=1)
+        #     dec_mask = None
+        # # query, _ = self.self_attn.to('cpu')(all_input, all_input, input_norm,
+        # #                                     mask=dec_mask,
+        # #                                     layer_cache=layer_cache,
+        # #                                     type="self")
+        #
+        # query, _ = self.self_attn.to('mps')(all_input.to('mps'), all_input.to('mps'), input_norm.to('mps'),
+        #                                     mask=dec_mask.to('mps'),
+        #                                     layer_cache=layer_cache,
+        #                                     type="self")
+        #
+        # query = self.drop(query.to('cpu')) + inputs
+        #
+        # if not ignore_memory_attn:
+        #     query_norm = self.layer_norm_2.to('cpu')(query)
+        #     mid, att = self.context_attn(memory_bank, memory_bank, query_norm,
+        #                                  mask=src_pad_mask,
+        #                                  layer_cache=layer_cache,
+        #                                  type="context",
+        #                                  requires_att=requires_att)
+        #     mid = self.drop(mid) + query
+        #     output = self.feed_forward(mid)
+        # else:
+        #     output = self.feed_forward.to('cpu')(query)
+        #     att = None
+
+        dec_mask = torch.gt(
+            tgt_pad_mask.to('cpu') + self.mask.to('cpu')[:, :tgt_pad_mask.size(1), :tgt_pad_mask.size(1)], 0)
+        input_norm = self.layer_norm_1.to('cpu')(inputs)
         all_input = input_norm
         if previous_input is not None:
             all_input = torch.cat((previous_input, input_norm), dim=1)
             dec_mask = None
-
-        query, _ = self.self_attn(all_input, all_input, input_norm,
-                                  mask=dec_mask,
-                                  layer_cache=layer_cache,
-                                  type="self")
-
-        query = self.drop(query) + inputs
-
+        # query, _ = self.self_attn.to('cpu')(all_input, all_input, input_norm,
+        #                                     mask=dec_mask,
+        #                                     layer_cache=layer_cache,
+        #                                     type="self")
+        query, _ = self.self_attn.to('mps')(all_input.to('mps'), all_input.to('mps'), input_norm.to('mps'),
+                                            mask=dec_mask.to('mps'),
+                                            layer_cache=layer_cache,
+                                            type="self")
+        query = self.drop(query.to('cpu')) + inputs
         if not ignore_memory_attn:
-            query_norm = self.layer_norm_2(query)
-            mid, att = self.context_attn(memory_bank, memory_bank, query_norm,
-                                         mask=src_pad_mask,
-                                         layer_cache=layer_cache,
-                                         type="context",
-                                         requires_att=requires_att)
-            mid = self.drop(mid) + query
-
+            query_norm = self.layer_norm_2.to('cpu')(query)
+            mid, att = self.context_attn.to('mps')(memory_bank.to('mps'), memory_bank.to('mps'), query_norm.to('mps'),
+                                                   mask=src_pad_mask.to('mps'),
+                                                   layer_cache=layer_cache.to('mps'),
+                                                   type="context",
+                                                   requires_att=requires_att.to('mps'))
+            mid = self.drop(mid.to('cpu')) + query.to('cpu')
             output = self.feed_forward(mid)
         else:
-            output = self.feed_forward(query)
+            output = self.feed_forward.to('cpu')(query)
             att = None
+
 
         return output, all_input, att
         # return output
@@ -156,7 +187,8 @@ class TransformerDecoder(nn.Module):
         tgt_batch, tgt_len = tgt_words.size()
         # Run the forward pass of the TransformerDecoder.
         # emb = self.embeddings(tgt, step=step)
-        emb = self.embeddings(tgt)
+
+        emb = self.embeddings.to('cpu')(tgt.to('cpu'))
         if init_tokens is not None:
             emb = torch.cat([init_tokens.unsqueeze(1), emb[:, 1:, :]], 1)
         assert emb.dim() == 3  # len x batch x embedding_dim
@@ -206,7 +238,7 @@ class TransformerDecoder(nn.Module):
         if state.cache is None:
             saved_inputs = torch.stack(saved_inputs)
 
-        output = self.layer_norm(output)
+        output = self.layer_norm.to('cpu')(output)
 
         # Process the result and update the attentions.
 
@@ -306,10 +338,19 @@ class Generator(nn.Module):
         self.pad_idx = pad_idx
 
     def forward(self, x, use_gumbel_softmax=False):
-        output = self.linear(x)
+        output = self.linear.to('cpu')(x)
         output[:, self.pad_idx] = -float('inf')
         if use_gumbel_softmax:
             output = gumbel_softmax(output, log_mode=True, dim=-1)
         else:
             output = self.softmax(output)
         return output
+
+    # def forward(self, x, use_gumbel_softmax=False):
+    #     output = self.linear.to('mps')(x.to('mps'))
+    #     output[:, self.pad_idx] = -float('inf')
+    #     if use_gumbel_softmax:
+    #         output = gumbel_softmax(output, log_mode=True, dim=-1)
+    #     else:
+    #         output = self.softmax(output)
+    #     return output

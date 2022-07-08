@@ -52,26 +52,22 @@ def train(config):
                               weight_decay=config['weight_decay'],
                               train_batch_size=config['batch_size'],
                               eval_batch_size=config['batch_size'],
-                              config=config).to(device=torch.device('cpu'))
+                              config=config).to(device=torch.device('mps'))
 
             # .load_from_checkpoint(config['ckpt'])
 
-            # .to(device=torch.device('mps'))
-
-        trainer = pl.Trainer(accelerator="cpu",
+        trainer = pl.Trainer(accelerator="cpu",   #"mps",
                             max_epochs=8,
                             min_epochs=6,
                             callbacks=[RichProgressBar(refresh_rate=1,), early_stop_callback, checkpoint_callback],
                             overfit_batches=0.015,
-                            # overfit_batches=100,
+                            # overfit_batches=1,
                             auto_scale_batch_size="binsearch",
                             enable_progress_bar=True,
-                            # strategy=ddp,
                             log_every_n_steps=5,
                             precision=32,
-                            amp_backend="native")
-        # amp_backend="native",
-        # auto_select_gpus=True)
+                            amp_backend="native"
+        )
 
         dl = create_dataloader(config)
         ckpt = config['ckpt']
@@ -128,19 +124,20 @@ def train(config):
                               config=config).to(device=torch.device('mps'))
 
 
-        trainer = pl.Trainer(accelerator="mps",
+        trainer = pl.Trainer(accelerator='cpu',   #"mps",
                              max_epochs=8,
                              min_epochs=6,
                              devices='auto',
                              callbacks=[RichProgressBar(refresh_rate=1, ), early_stop_callback, checkpoint_callback],
                              # overfit_batches=0.015,
-                             # overfit_batches=100,
-                             auto_scale_batch_size="binsearch",
+                             overfit_batches=1,
+                             # auto_scale_batch_size="binsearch",
                              enable_progress_bar=True,
                              # strategy=ddp,
                              log_every_n_steps=10,
-                             precision=32,
-                             amp_backend="native")
+                             precision=32
+                             # amp_backend="native"
+        )
 
         # dl = create_dataloader(config)  # (os.cpu_count()/2))
         ckpt = config['ckpt']

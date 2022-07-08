@@ -63,9 +63,9 @@ class SCAPT(BertPreTrainedModel):
     ):
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
 
-        outputs = self.bert(
-            input_ids.to('cpu'),
-            attention_mask=attention_mask.to('cpu'),
+        outputs = self.bert.to('mps')(
+            input_ids,
+            attention_mask=attention_mask,
             token_type_ids=token_type_ids,
             position_ids=position_ids,
             head_mask=head_mask,
@@ -78,28 +78,27 @@ class SCAPT(BertPreTrainedModel):
         )
 
         sequence_output = outputs[0]
-        prediction_scores = self.cls(sequence_output)
+        prediction_scores = self.cls.to('mps')(sequence_output)
 
         masked_lm_loss = None
         if labels is not None:
-            loss_fct = CrossEntropyLoss(ignore_index=-1).cpu()# -1 index = padding token
-            masked_lm_loss = loss_fct(prediction_scores.cpu().view(-1, self.config.vocab_size), labels.view(-1))
-
+            loss_fct = CrossEntropyLoss(ignore_index=-1)  # -1 index = padding token
+            masked_lm_loss = loss_fct(prediction_scores.view(-1, self.config.vocab_size), labels.to('mps').view(-1))  #
         expand_aspect_mask = (1 - aspect_mask).unsqueeze(-1).bool()
-        cls_hidden = self.cls_representation(sequence_output[:, 0])
-        aspect_hidden = torch.div(torch.sum(sequence_output.masked_fill(expand_aspect_mask, 0), dim=-2),
-                                  torch.sum(aspect_mask.float(), dim=-1).unsqueeze(-1))
-        aspect_hidden = self.aspect_representation(aspect_hidden)
+        cls_hidden = self.cls_representation.to('mps')(sequence_output[:, 0])
+        aspect_hidden = torch.div(torch.sum(sequence_output.masked_fill(expand_aspect_mask.to('mps'), 0), dim=-2),
+                                  torch.sum(aspect_mask.to('mps').float(), dim=-1).unsqueeze(-1))
+        aspect_hidden = self.aspect_representation.to('mps')(aspect_hidden)
         merged = self.dropout(torch.cat((cls_hidden, aspect_hidden), dim=-1))
-        sentiment = self.classifier(merged)
+        sentiment = self.classifier.to('mps')(merged)
         if multi_card:
             if has_opposite_labels:
-                return cls_hidden, outputs.last_hidden_state[:, 0], masked_lm_loss
+                return cls_hidden.to('cpu'), outputs.last_hidden_state[:, 0].to('cpu'), masked_lm_loss.to('cpu')
             else:
                 return outputs.last_hidden_state[:, 0], masked_lm_loss
         if not return_dict:
-            output = (prediction_scores, ) + outputs[2:]
-            return sentiment, cls_hidden, masked_lm_loss, output
+            output = (prediction_scores.to('cpu'), ) + outputs[2:].to('cpu')
+            return sentiment.to('cpu'), cls_hidden.to('cpu'), masked_lm_loss.to('cpu'), output.to('cpu')
         return ABSAOutput(
             sentiment=sentiment,
             loss=masked_lm_loss,
