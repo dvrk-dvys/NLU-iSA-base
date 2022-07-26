@@ -22,7 +22,7 @@ def train(config):
         checkpoint_callback = ModelCheckpoint(dirpath=save_ckpt_path,
                                               save_top_k=-1,
                                               monitor="pretrain_loss",
-                                              every_n_train_steps=200,
+                                              every_n_train_steps=600,
                                               train_time_interval=None,
                                               auto_insert_metric_name=True,
                                               # save_on_train_epoch_end=True,
@@ -49,7 +49,7 @@ def train(config):
                             # overfit_batches=3,
                             auto_scale_batch_size="binsearch",
                             enable_progress_bar=True,
-                            log_every_n_steps=5,
+                            log_every_n_steps=10,
                             precision=32,
                             amp_backend="native"
         )
@@ -85,7 +85,7 @@ def train(config):
         checkpoint_callback = ModelCheckpoint(dirpath=save_ckpt_path,
                                               save_top_k=-1,
                                               monitor="total_loss",
-                                              every_n_train_steps=200,
+                                              every_n_train_steps=600,
                                               train_time_interval=None,
                                               auto_insert_metric_name=True,
                                               # save_on_train_epoch_end=True,
@@ -109,7 +109,7 @@ def train(config):
                               train_batch_size=config['batch_size'],
                               eval_batch_size=config['batch_size'],
                               loaders=loaders,
-                              config=config).to(device=torch.device('CPU'))
+                              config=config).to(device=torch.device('cpu'))
 
 
         trainer = pl.Trainer(accelerator='cpu',
@@ -121,7 +121,6 @@ def train(config):
                              # overfit_batches=100,
                              auto_scale_batch_size="binsearch",
                              enable_progress_bar=True,
-                             # strategy=ddp,
                              log_every_n_steps=10,
                              precision=32,
                              amp_backend="native"
