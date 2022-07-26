@@ -30,13 +30,9 @@ from train.model import build_absa_model
 from train.model import SupConLoss
 from train.optimizer import build_optim, build_optim_bert
 
-Xccelerate = MPSAccelerator
-ddp = DDPStrategy(accelerator=Xccelerate) #, process_group_backend='gloo')
-# print(Xccelerate.get_device_stats(Xccelerate, 0))
-
 XLdevice = HF_Accelerator.device
 dtype = torch.float
-device = torch.device("mps")
+device = torch.device("cpu")
 
 HF_Accelerator = HF_Accelerator()
 
@@ -77,13 +73,13 @@ def collate_fn(batch):
     labels = torch.stack(labels)
     implicits = torch.stack(implicits)
 
-    return (bert_tokens.to(torch.device('mps')),
-            bert_masks.to(torch.device('mps')),
-            aspect_masks.to(torch.device('mps')),
-            labels.to(torch.device('mps')),
+    return (bert_tokens,
+            bert_masks,
+            aspect_masks,
+            labels,
             raw_texts,
             raw_aspect_terms,
-            implicits.to(torch.device('mps')))
+            implicits)
 
 
 sentiment_dict = {
@@ -95,7 +91,8 @@ sentiment_dict = {
 
 
 def evaluate(config, model, data_loader, criterion=None):
-    device = torch.device('mps' if torch.backends.mps.is_available() else 'cpu')
+    # device = torch.device('mps' if torch.backends.mps.is_available() else 'cpu')
+    device = torch.device('cpu')
     total_samples, correct_samples = 0, 0
     total_explicit, correct_explicit = 0, 0
     total_implicit, correct_implicit = 0, 0
@@ -135,11 +132,11 @@ def evaluate(config, model, data_loader, criterion=None):
                 preds_all = torch.cat((preds_all, pred), dim=0)
                 batches_all.append(batch)
 
-            correct_samples += (pred.to(torch.device('mps')) == labels.to(torch.device('mps'))).long().sum().item()
+            correct_samples += (pred.to(torch.device('cpu')) == labels.to(torch.device('cpu'))).long().sum().item()
             total_explicit += (1 - implicits).long().sum().item()
             correct_explicit += ((1 - implicits) & (pred == labels)).long().sum().item()
             total_implicit += implicits.long().sum().item()
-            correct_implicit += (implicits & (pred.to(torch.device('mps')) == labels.to(torch.device('mps')))).long().sum().item()
+            correct_implicit += (implicits & (pred.to(torch.device('cpu')) == labels.to(torch.device('cpu')))).long().sum().item()
 
     accuracy = correct_samples / total_samples
     f1 = metrics.f1_score(y_true=labels_all.cpu(),
@@ -188,8 +185,8 @@ class finetune_Lite(LightningModule):
         if config['state_dict'] != '':
             # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Model Load
             model_dict = torch.load(config['state_dict'], map_location=torch.device('cpu'))
-            self.model.load_state_dict(state_dict=model_dict)
-            self.model = self.model.to(torch.device('mps'))
+            self.model.load_state_dict(model_dict)
+            self.model = self.model.to(torch.device('cpu'))
 
         self.similar_criterion = SupConLoss()
         self.classification_criterion = LabelSmoothLoss(smoothing=self.config['label_smooth'])
@@ -289,14 +286,14 @@ class finetune_Lite(LightningModule):
                 torch.save(self.model.state_dict(), os.path.join(self.model_path, model_file))
 
 
-            print("Max valid accuracy: {:.4f}, valid f1: {:.4f}, ".format(self.max_val_accuracy, self.max_val_f1),
+                print("Max valid accuracy: {:.4f}, valid f1: {:.4f}, ".format(self.max_val_accuracy, self.max_val_f1),
                       "explicit acc: {:.4f}, implicit acc: {:.4f}".format(self.max_explicit_acc, self.max_implicit_acc))
-            return self.min_val_loss
+
+
         return self.classification_loss
-            # torch.as_tensor(self.total_loss)
 
 def aspect_finetune(config):
-    device = torch.device('mps' if torch.backends.mps.is_available() else 'cpu')
+    # device = torch.device('cpu' if torch.backends.mps.is_available() else 'cpu')
     train_loader, dev_loader, test_loader = prepare_dataset(config,
                                                             absa_dataset=ABSADataset,
                                                             collate_fn=collate_fn)
