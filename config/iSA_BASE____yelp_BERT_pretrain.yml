@@ -1,6 +1,7 @@
 mode: fp16_multi_pretrain
 model: BERT
 
+device: 0
 #data_path: data/YELP
 data_path: data/iSA
 pretrain_file: yelp_restaurants_preprocess_pretrain.pkl
@@ -13,7 +14,7 @@ seed: 42
 batch_size: 32
 dropout: 0.1
 epoch: 6
-report_frequency: 2
+report_frequency: 400
 save_frequency: 400
 
 decoder_heads: 6

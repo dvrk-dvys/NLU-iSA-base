@@ -1,0 +1,17 @@
+{
+  "alpha_loss": "0.2",
+  "bert_lr": "2e-5",
+  "bert_type": "BERT",
+  "checkpoint_path": "2022-07-26-14:29:49.pt",
+  "dev_path": "/Users/jordanharris/SCAPT-ABSA/AspectDetecter/Out_of_domain_ABSA/SpanEmo/SemEval16/SemEval2016SpanEmoValidation.csv",
+  "eval_batch_size": 32,
+  "ffn_lr": "0.001",
+  "lang": "English",
+  "loss_type": "cross-entropy",
+  "max_epoch": 10,
+  "max_length": 128,
+  "output_dropout": "0.1",
+  "seed": 42,
+  "train_batch_size": 32,
+  "train_path": "/Users/jordanharris/SCAPT-ABSA/AspectDetecter/Out_of_domain_ABSA/SpanEmo/SemEval16/SemEval2016SpanEmo.csv"
+}

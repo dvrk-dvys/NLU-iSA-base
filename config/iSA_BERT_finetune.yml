@@ -6,7 +6,7 @@ data_path: data/iSA
 model_path: results/iSA
 train_file: iSA_Train_v2_Implicit_Labeled_preprocess_finetune.pkl
 test_file: iSA_Test_Gold_Implicit_Labeled_preprocess_finetune.pkl
-num_workers_per_loader: 8
+num_workers_per_loader: 2
 
 seed: 42
 batch_size: 32
@@ -21,5 +21,5 @@ weight_decay: 0.015
 grad_norm: 5.0
 
 
-ckpt: ''
-state_dict: '/Users/jordanharris/SCAPT-ABSA/models_weights/BERT_restaurants.pt'
+ckpt: '/Users/jordanharris/SCAPT-ABSA/checkpoints/restaurants_BERT/last.ckpt'
+state_dict: '/Users/jordanharris/SCAPT-ABSA/results/restaurants/BERT_0714051910/epoch_0_step_112_acc_0.8696_f1_0.7974_loss_0.5574.pt'

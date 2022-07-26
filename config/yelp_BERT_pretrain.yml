@@ -3,16 +3,16 @@ model: BERT
 
 data_path: data/YELP
 pretrain_file: yelp_restaurants_preprocess_pretrain.pkl
-#model_path: results/YELP
-model_path: results/YELP_Amazon
+model_path: results/YELP
+#model_path: results/YELP_Amazon
 num_workers_per_loader: 2
 
 seed: 42
 batch_size: 32
 dropout: 0.1
 epoch: 8
-report_frequency: 2
-save_frequency: 400
+report_frequency: 600
+save_frequency: 600
 
 decoder_heads: 6
 decoder_layers: 6
@@ -32,10 +32,10 @@ warm_up: 20000
 grad_norm: 5.0
 
 
-ckpt: '/Users/jordanharris/SCAPT-ABSA/checkpoints/YELP_Amazon_BERT/last.ckpt'
-state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0625234453/epoch_6_step_4000.pt'
-dec_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0625234453/epoch_6_step_4000_decoder.pt'
-gen_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0625234453/epoch_6_step_4000_generator.pt'
+ckpt: '/Users/jordanharris/SCAPT-ABSA/checkpoints/YELP_BERT/last.ckpt'
+state_dict: '/Users/jordanharris/SCAPT-ABSA/results/BERT_laptops.pt'
+dec_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0713194524/epoch_0_step_852_decoder.pt'
+gen_state_dict: '/Users/jordanharris/SCAPT-ABSA/results/YELP_Amazon/BERT_0713194524/epoch_0_step_852_generator.pt'
 
 
 
